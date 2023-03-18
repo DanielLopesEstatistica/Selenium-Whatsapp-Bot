@@ -10,20 +10,18 @@ openai.api_key = "YourKey"
 
 driver = webdriver.Firefox()
 
-# Navigate to the WhatsApp Web page
 driver.get('https://web.whatsapp.com/')
 
-# Wait for the user to scan the QR code
+#Use your cellphone to log into whatsapp web and then press enter on the code
 input('Press Enter once you have scanned the QR code.')
 
-chat_name = "Audio 2"
+#Must be the complete chat name were the bot will act
+chat_name = "YourChatName"
 
-# Find the chat you want to interact with
 search_box = driver.find_element(By.CSS_SELECTOR, 'div[contenteditable="true"]')
 search_box.send_keys(chat_name)
 time.sleep(2)
 
-# Open the chat
 chat = driver.find_element(By.XPATH, f'//span[@title="{chat_name}"]')
 chat.click()
 
@@ -36,7 +34,6 @@ def send_text(string):
     message_box.send_keys(Keys.ENTER)
 
 
-# Wait for a response
 last_response_time = 0
 last_message_id = None
 aux_polar = 0
